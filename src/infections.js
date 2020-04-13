@@ -1,23 +1,22 @@
 // Challenge 1
-const userData = {
-  data: {
-    region: {
-      name: 'Afrtica',
-      avgAge: 19.7,
-      avgDailyIncomeInUSD: 4,
-      avgDailyIncomePopulation: 0.73
-    },
-    periodType: 'days',
-    timeToElapse: 38,
-    reportedCases: 2747,
-    population: 92931687,
-    totalHospitalBeds: 678874
-  }
+const data = {
+  region: {
+    name: 'Afrtica',
+    avgAge: 19.7,
+    avgDailyIncomeInUSD: 4,
+    avgDailyIncomePopulation: 0.73
+  },
+  periodType: 'days',
+  timeToElapse: 38,
+  reportedCases: 2747,
+  population: 92931687,
+  totalHospitalBeds: 678874
+
 };
 
 export const currentlyInfectedForImpact = (param) => {
   try {
-    const { data: { reportedCases } } = param;
+    const { reportedCases } = param;
     const currentlyInfected = reportedCases * 10;
     return currentlyInfected;
   } catch (error) {
@@ -27,7 +26,7 @@ export const currentlyInfectedForImpact = (param) => {
 
 export const currentlyInfectedForSevereImpact = (param) => {
   try {
-    const { data: { reportedCases } } = param;
+    const { reportedCases } = param;
     const currentlyInfected = reportedCases * 50;
     return currentlyInfected;
   } catch (error) {
@@ -38,7 +37,7 @@ export const currentlyInfectedForSevereImpact = (param) => {
 
 export const convertToDays = (param) => {
   let days;
-  const { data: { timeToElapse }, data: { periodType } } = param;
+  const { timeToElapse, periodType } = param;
   const setPeriodTypeToLowerCase = periodType.toLowerCase();
   switch (setPeriodTypeToLowerCase) {
     case 'days':
@@ -59,8 +58,8 @@ export const convertToDays = (param) => {
 
 export const infectionsByTimeForImpact = () => {
   try {
-    const factor = Math.trunc(convertToDays(userData) / 3);
-    const infectionByRequestedTime = Math.trunc(currentlyInfectedForImpact(userData)
+    const factor = Math.trunc(convertToDays(data) / 3);
+    const infectionByRequestedTime = Math.trunc(currentlyInfectedForImpact(data)
       * (2 ** factor));
     return infectionByRequestedTime;
   } catch (error) {
@@ -70,8 +69,8 @@ export const infectionsByTimeForImpact = () => {
 
 export const infectionsByTimeForSevereImpact = () => {
   try {
-    const factor = Math.trunc(convertToDays(userData) / 3);
-    const infectionByRequestedTime = Math.trunc(currentlyInfectedForSevereImpact(userData)
+    const factor = Math.trunc(convertToDays(data) / 3);
+    const infectionByRequestedTime = Math.trunc(currentlyInfectedForSevereImpact(data)
       * (2 ** factor));
     return infectionByRequestedTime;
   } catch (error) {

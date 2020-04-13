@@ -1,20 +1,18 @@
 // Challenge 3
 import { infectionsByTimeForImpact, infectionsByTimeForSevereImpact, convertToDays } from './infections';
 
-const userData = {
-  data: {
-    region: {
-      name: 'Afrtica',
-      avgAge: 19.7,
-      avgDailyIncomeInUSD: 4,
-      avgDailyIncomePopulation: 0.73
-    },
-    periodType: 'days',
-    timeToElapse: 38,
-    reportedCases: 2747,
-    population: 92931687,
-    totalHospitalBeds: 678874
-  }
+const data = {
+  region: {
+    name: 'Afrtica',
+    avgAge: 19.7,
+    avgDailyIncomeInUSD: 4,
+    avgDailyIncomePopulation: 0.73
+  },
+  periodType: 'days',
+  timeToElapse: 38,
+  reportedCases: 2747,
+  population: 92931687,
+  totalHospitalBeds: 678874
 };
 
 export const ICUCasesForImpact = () => {
@@ -57,11 +55,11 @@ export const casesForVentilatorsForSevereImpact = () => {
 export const dollarsInFlightForImpact = (param) => {
   try {
     const {
-      data: { region: { avgDailyIncomePopulation } },
-      data: { region: { avgDailyIncomeInUSD } }
+      region: { avgDailyIncomePopulation },
+      region: { avgDailyIncomeInUSD }
     } = param;
     const dollarsInFlight = Math.trunc((infectionsByTimeForImpact() * avgDailyIncomePopulation)
-      * (avgDailyIncomeInUSD * convertToDays(userData)));
+      * (avgDailyIncomeInUSD * convertToDays(data)));
     return dollarsInFlight;
   } catch (error) {
     return error.message;
@@ -71,11 +69,11 @@ export const dollarsInFlightForImpact = (param) => {
 export const dollarsInFlightForSevereImpact = (param) => {
   try {
     const {
-      data: { region: { avgDailyIncomePopulation } },
-      data: { region: { avgDailyIncomeInUSD } }
+      region: { avgDailyIncomePopulation },
+      region: { avgDailyIncomeInUSD }
     } = param;
     const dollarsInFlight = Math.trunc((infectionsByTimeForSevereImpact()
-    * avgDailyIncomePopulation) * (avgDailyIncomeInUSD * convertToDays(userData)));
+    * avgDailyIncomePopulation) * (avgDailyIncomeInUSD * convertToDays(data)));
     return dollarsInFlight;
   } catch (error) {
     return error.message;

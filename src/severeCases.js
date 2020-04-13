@@ -1,25 +1,23 @@
 // challenge 2
 import { infectionsByTimeForImpact, infectionsByTimeForSevereImpact } from './infections';
 
-const userData = {
-  data: {
-    region: {
-      name: 'Afrtica',
-      avgAge: 19.7,
-      avgDailyIncomeInUSD: 4,
-      avgDailyIncomePopulation: 0.73
-    },
-    periodType: 'days',
-    timeToElapse: 38,
-    reportedCases: 2747,
-    population: 92931687,
-    totalHospitalBeds: 678874
-  }
+const data = {
+  region: {
+    name: 'Africa',
+    avgAge: 19.7,
+    avgDailyIncomeInUSD: 4,
+    avgDailyIncomePopulation: 0.73
+  },
+  periodType: 'days',
+  timeToElapse: 38,
+  reportedCases: 2747,
+  population: 92931687,
+  totalHospitalBeds: 678874
 };
 
 export const severeCasesForImpact = () => {
   try {
-    const infection = infectionsByTimeForImpact(userData);
+    const infection = infectionsByTimeForImpact(data);
     const severeCasesByRequestedTime = Math.trunc((15 / 100) * infection);
     return severeCasesByRequestedTime;
   } catch (error) {
@@ -29,7 +27,7 @@ export const severeCasesForImpact = () => {
 
 export const severeCasesForSevereImpact = () => {
   try {
-    const infection = infectionsByTimeForSevereImpact(userData);
+    const infection = infectionsByTimeForSevereImpact(data);
     const severeCasesByRequestedTime = Math.trunc((15 / 100) * infection);
     return severeCasesByRequestedTime;
   } catch (error) {
@@ -39,7 +37,7 @@ export const severeCasesForSevereImpact = () => {
 
 export const hospitalByRequestedTimeForImpact = (param) => {
   try {
-    const { data: { totalHospitalBeds } } = param;
+    const { totalHospitalBeds } = param;
     const severeCases = severeCasesForImpact();
     const hospitalByRequestedTime = Math.trunc(((35 / 100) * totalHospitalBeds) - severeCases);
     return hospitalByRequestedTime;
@@ -50,7 +48,7 @@ export const hospitalByRequestedTimeForImpact = (param) => {
 
 export const hospitalByRequestedTimeForSevereImpact = (param) => {
   try {
-    const { data: { totalHospitalBeds } } = param;
+    const { totalHospitalBeds } = param;
     const severeCases = severeCasesForSevereImpact();
     const hospitalByRequestedTime = Math.trunc(((35 / 100) * totalHospitalBeds) - severeCases);
     return hospitalByRequestedTime;

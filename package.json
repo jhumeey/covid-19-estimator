@@ -6,7 +6,6 @@
   "private": false,
   "scripts": {
     "lint": "eslint ./src/",
-    "start": "babel-node ./src/functions/estimator.js ",
     "babel-node": "./node_modules/.bin/babel-node"
   },
   "dependencies": {
