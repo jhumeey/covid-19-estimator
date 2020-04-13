@@ -54,5 +54,5 @@ const covid19ImpactEstimator = (userData) => ({
     dollarsInFlight: dollarsInFlightForSevereImpact(userData)
   }
 });
-console.log(covid19ImpactEstimator(data));
-// export default covid19ImpactEstimator;
+
+export default covid19ImpactEstimator;
