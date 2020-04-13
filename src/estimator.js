@@ -22,7 +22,7 @@ import {
 let userData = {
   data: {
     region: {
-      name: 'Afrtica',
+      name: 'Africa',
       avgAge: 19.7,
       avgDailyIncomeInUSD: 4,
       avgDailyIncomePopulation: 0.73
