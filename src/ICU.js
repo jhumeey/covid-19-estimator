@@ -46,8 +46,8 @@ export const dollarsInFlightForImpact = (param) => {
       region: { avgDailyIncomePopulation },
       region: { avgDailyIncomeInUSD }
     } = param;
-    const dollarsInFlight = Math.trunc((infectionsByTimeForImpact(param) * avgDailyIncomePopulation)
-      * (avgDailyIncomeInUSD * convertToDays(param)));
+    const dollarsInFlight = Math.trunc((infectionsByTimeForImpact(param) * avgDailyIncomePopulation
+      * avgDailyIncomeInUSD) / convertToDays(param));
     return dollarsInFlight;
   } catch (error) {
     return error.message;
@@ -61,7 +61,7 @@ export const dollarsInFlightForSevereImpact = (param) => {
       region: { avgDailyIncomeInUSD }
     } = param;
     const dollarsInFlight = Math.trunc((infectionsByTimeForSevereImpact(param)
-    * avgDailyIncomePopulation) * (avgDailyIncomeInUSD * convertToDays(param)));
+    * avgDailyIncomePopulation * avgDailyIncomeInUSD) / convertToDays(param));
     return dollarsInFlight;
   } catch (error) {
     return error.message;
