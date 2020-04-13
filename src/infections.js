@@ -1,18 +1,4 @@
 // Challenge 1
-const data = {
-  region: {
-    name: 'Afrtica',
-    avgAge: 19.7,
-    avgDailyIncomeInUSD: 4,
-    avgDailyIncomePopulation: 0.73
-  },
-  periodType: 'days',
-  timeToElapse: 38,
-  reportedCases: 2747,
-  population: 92931687,
-  totalHospitalBeds: 678874
-
-};
 
 export const currentlyInfectedForImpact = (param) => {
   try {
@@ -56,7 +42,7 @@ export const convertToDays = (param) => {
 };
 
 
-export const infectionsByTimeForImpact = () => {
+export const infectionsByTimeForImpact = (data) => {
   try {
     const factor = Math.trunc(convertToDays(data) / 3);
     const infectionByRequestedTime = Math.trunc(currentlyInfectedForImpact(data)
@@ -67,7 +53,7 @@ export const infectionsByTimeForImpact = () => {
   }
 };
 
-export const infectionsByTimeForSevereImpact = () => {
+export const infectionsByTimeForSevereImpact = (data) => {
   try {
     const factor = Math.trunc(convertToDays(data) / 3);
     const infectionByRequestedTime = Math.trunc(currentlyInfectedForSevereImpact(data)

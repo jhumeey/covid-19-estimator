@@ -1,51 +1,39 @@
 // Challenge 3
 import { infectionsByTimeForImpact, infectionsByTimeForSevereImpact, convertToDays } from './infections';
 
-const data = {
-  region: {
-    name: 'Afrtica',
-    avgAge: 19.7,
-    avgDailyIncomeInUSD: 4,
-    avgDailyIncomePopulation: 0.73
-  },
-  periodType: 'days',
-  timeToElapse: 38,
-  reportedCases: 2747,
-  population: 92931687,
-  totalHospitalBeds: 678874
-};
-
-export const ICUCasesForImpact = () => {
+export const ICUCasesForImpact = (data) => {
   try {
-    const casesForICUByRequestedTime = Math.trunc((5 / 100) * infectionsByTimeForImpact());
+    const casesForICUByRequestedTime = Math.trunc((5 / 100) * infectionsByTimeForImpact(data));
     return casesForICUByRequestedTime;
   } catch (error) {
     return error.message;
   }
 };
 
-export const ICUCasesForSevereImpact = () => {
+export const ICUCasesForSevereImpact = (data) => {
   try {
-    const casesForICUByRequestedTime = Math.trunc((5 / 100) * infectionsByTimeForSevereImpact());
+    const casesForICUByRequestedTime = Math.trunc((5 / 100)
+    * infectionsByTimeForSevereImpact(data));
     return casesForICUByRequestedTime;
   } catch (error) {
     return error.message;
   }
 };
 
-export const casesForVentilatorsForImpact = () => {
+export const casesForVentilatorsForImpact = (data) => {
   try {
-    const casesForVentilatorsByRequestedTime = Math.trunc((2 / 100) * infectionsByTimeForImpact());
+    const casesForVentilatorsByRequestedTime = Math.trunc((2 / 100)
+    * infectionsByTimeForImpact(data));
     return casesForVentilatorsByRequestedTime;
   } catch (error) {
     return error.message;
   }
 };
 
-export const casesForVentilatorsForSevereImpact = () => {
+export const casesForVentilatorsForSevereImpact = (data) => {
   try {
     const casesForVentilatorsByRequestedTime = Math.trunc((2 / 100)
-    * infectionsByTimeForSevereImpact());
+    * infectionsByTimeForSevereImpact(data));
     return casesForVentilatorsByRequestedTime;
   } catch (error) {
     return error.message;
@@ -58,8 +46,8 @@ export const dollarsInFlightForImpact = (param) => {
       region: { avgDailyIncomePopulation },
       region: { avgDailyIncomeInUSD }
     } = param;
-    const dollarsInFlight = Math.trunc((infectionsByTimeForImpact() * avgDailyIncomePopulation)
-      * (avgDailyIncomeInUSD * convertToDays(data)));
+    const dollarsInFlight = Math.trunc((infectionsByTimeForImpact(param) * avgDailyIncomePopulation)
+      * (avgDailyIncomeInUSD * convertToDays(param)));
     return dollarsInFlight;
   } catch (error) {
     return error.message;
@@ -72,8 +60,8 @@ export const dollarsInFlightForSevereImpact = (param) => {
       region: { avgDailyIncomePopulation },
       region: { avgDailyIncomeInUSD }
     } = param;
-    const dollarsInFlight = Math.trunc((infectionsByTimeForSevereImpact()
-    * avgDailyIncomePopulation) * (avgDailyIncomeInUSD * convertToDays(data)));
+    const dollarsInFlight = Math.trunc((infectionsByTimeForSevereImpact(param)
+    * avgDailyIncomePopulation) * (avgDailyIncomeInUSD * convertToDays(param)));
     return dollarsInFlight;
   } catch (error) {
     return error.message;

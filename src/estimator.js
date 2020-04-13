@@ -19,38 +19,25 @@ import {
   dollarsInFlightForSevereImpact
 } from './ICU';
 
-const data = {
-  region: {
-    name: 'Africa',
-    avgAge: 19.7,
-    avgDailyIncomeInUSD: 4,
-    avgDailyIncomePopulation: 0.73
-  },
-  periodType: 'days',
-  timeToElapse: 38,
-  reportedCases: 2747,
-  population: 92931687,
-  totalHospitalBeds: 678874
-};
 
 const covid19ImpactEstimator = (userData) => ({
-  data,
+  data: userData,
   impact: {
     currentlyInfected: currentlyInfectedForImpact(userData),
-    infectionsByRequestedTime: infectionsByTimeForImpact(),
-    severeCasesByRequestedTime: severeCasesForImpact(),
+    infectionsByRequestedTime: infectionsByTimeForImpact(userData),
+    severeCasesByRequestedTime: severeCasesForImpact(userData),
     hospitalBedsByRequestedTime: hospitalByRequestedTimeForImpact(userData),
-    casesForICUByRequestedTime: ICUCasesForImpact(),
-    casesForVentilatorsByRequestedTime: casesForVentilatorsForImpact(),
+    casesForICUByRequestedTime: ICUCasesForImpact(userData),
+    casesForVentilatorsByRequestedTime: casesForVentilatorsForImpact(userData),
     dollarsInFlight: dollarsInFlightForImpact(userData)
   },
   severeImpact: {
     currentlyInfected: currentlyInfectedForSevereImpact(userData),
-    infectionsByRequestedTime: infectionsByTimeForSevereImpact(),
-    severeCasesByRequestedTime: severeCasesForSevereImpact(),
+    infectionsByRequestedTime: infectionsByTimeForSevereImpact(userData),
+    severeCasesByRequestedTime: severeCasesForSevereImpact(userData),
     hospitalBedsByRequestedTime: hospitalByRequestedTimeForSevereImpact(userData),
-    casesForICUByRequestedTime: ICUCasesForSevereImpact(),
-    casesForVentilatorsByRequestedTime: casesForVentilatorsForSevereImpact(),
+    casesForICUByRequestedTime: ICUCasesForSevereImpact(userData),
+    casesForVentilatorsByRequestedTime: casesForVentilatorsForSevereImpact(userData),
     dollarsInFlight: dollarsInFlightForSevereImpact(userData)
   }
 });

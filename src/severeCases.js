@@ -1,21 +1,7 @@
 // challenge 2
 import { infectionsByTimeForImpact, infectionsByTimeForSevereImpact } from './infections';
 
-const data = {
-  region: {
-    name: 'Africa',
-    avgAge: 19.7,
-    avgDailyIncomeInUSD: 4,
-    avgDailyIncomePopulation: 0.73
-  },
-  periodType: 'days',
-  timeToElapse: 38,
-  reportedCases: 2747,
-  population: 92931687,
-  totalHospitalBeds: 678874
-};
-
-export const severeCasesForImpact = () => {
+export const severeCasesForImpact = (data) => {
   try {
     const infection = infectionsByTimeForImpact(data);
     const severeCasesByRequestedTime = Math.trunc((15 / 100) * infection);
@@ -25,7 +11,7 @@ export const severeCasesForImpact = () => {
   }
 };
 
-export const severeCasesForSevereImpact = () => {
+export const severeCasesForSevereImpact = (data) => {
   try {
     const infection = infectionsByTimeForSevereImpact(data);
     const severeCasesByRequestedTime = Math.trunc((15 / 100) * infection);
@@ -38,7 +24,7 @@ export const severeCasesForSevereImpact = () => {
 export const hospitalByRequestedTimeForImpact = (param) => {
   try {
     const { totalHospitalBeds } = param;
-    const severeCases = severeCasesForImpact();
+    const severeCases = severeCasesForImpact(param);
     const hospitalByRequestedTime = Math.trunc(((35 / 100) * totalHospitalBeds) - severeCases);
     return hospitalByRequestedTime;
   } catch (error) {
@@ -49,7 +35,7 @@ export const hospitalByRequestedTimeForImpact = (param) => {
 export const hospitalByRequestedTimeForSevereImpact = (param) => {
   try {
     const { totalHospitalBeds } = param;
-    const severeCases = severeCasesForSevereImpact();
+    const severeCases = severeCasesForSevereImpact(param);
     const hospitalByRequestedTime = Math.trunc(((35 / 100) * totalHospitalBeds) - severeCases);
     return hospitalByRequestedTime;
   } catch (error) {
