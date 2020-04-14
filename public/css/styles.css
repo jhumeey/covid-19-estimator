@@ -12,6 +12,7 @@ html, body {
   height: 100%;
   display: flex;
   flex-flow: row;
+  font-family: 'Nunito', sans-serif;
 }
 
 .left-column {
@@ -19,7 +20,9 @@ html, body {
   display: inherit;
   flex-flow: column;
   padding: 20px;
+  padding-top: 5rem;
   text-align: center;
+  font-family: 'Nunito', sans-serif;
 }
 
 .light-background {
@@ -29,19 +32,34 @@ html, body {
 .right-column {
   width: 50%;
   padding: 20px;
+  font-family: 'Nunito', sans-serif;
 }
+
 .right-column-header {
   text-align: center;
 }
+
+.right-column-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
 .dark-background {
   background-color: #0E153A;
   color: #f2f2f2
 }
 
-.header-container {
+.left-column-header-container {
   width: 100%;
   margin: 0px auto;
   text-align: center;
+}
+
+.left-column-header-container h1 {
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #000000c9;
 }
 
 .image-container {
@@ -57,6 +75,12 @@ html, body {
 .text-container {
   width: 100%;
   margin: 0px auto;
+}
+
+.text-container p {
+  font-size: 20px;
+  padding: 20px;
+  color: #000000c9;
 }
 
 input {
@@ -76,7 +100,7 @@ select {
   padding: 10px;
   background: transparent;
   border-bottom: 1px solid #f2f2f2;
-  width: 100%;
+  width: 103%;
 }
 
 .button_primary {
@@ -90,7 +114,7 @@ select {
 }
 
 .form-container {
-  margin: 10% 0;
+  margin: 11% 0;
 }
 
 .estimator-form {
@@ -101,3 +125,23 @@ select {
 .form__item-group {
   padding: 10px;
 }
+
+@media (max-width: 700px) {
+  body {
+    overflow: auto;
+  }
+  .container {
+    flex-flow: column;
+  }
+  .left-column {
+    width: 100%;
+  }
+  .right-column {
+    width: 100%;
+  }
+  .estimator-form {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1000px) {}
