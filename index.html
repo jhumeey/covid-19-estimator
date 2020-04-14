@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title></title>
+  <title>Covid-19-estimator application</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Get correct rel for the link below -->
@@ -34,34 +34,34 @@
           <div class="form__item-group">
             <label for="population">Population: </label>
             <br>
-            <input class="form__input" type="number" name="population" data-population="" required>
+            <input class="form__input" type="number" name="population" id="population" data-population="" required>
           </div>
           <div class="form__item-group">
             <label for="reported_cases">Reported Cases: </label>
             <br>
-            <input class="form__input" type="number" name="reported_cases" data-reported-cases="" required>
+            <input class="form__input" type="number" name="reported_cases" id="reported_cases" data-reported-cases="" required>
           </div>
           <div class="form__item-group">
             <label for="time">Time To Elapse: </label>
             <br>
-            <input class="form__input" type="number" name="data-time-to-elapse" data-time-to-elapse="" required>
+            <input class="form__input" type="number" name="time" id="time" data-time-to-elapse="" required>
           </div>
           <div class="form__item-group">
             <label for="hospitals">Total Hospitals </label>
             <br>
-            <input class="form__input" type="number" name="data-total-hospital-beds" data-total-hospital-beds=""
+            <input class="form__input" type="number" name="hospitals" id="hospitals" data-total-hospital-beds=""
               required>
           </div>
           <div class="form__item-group">
-            <label for="period-type">PeriodType: </label>
+            <label for="period_type">PeriodType: </label>
             <br>
-            <select class="form__select" name="data-period-type" data-period-type="">
+            <select class="form__select" name="period_type" id="period_type" data-period-type="" >
               <option>Days</option>
               <option>Weeks</option>
               <option>Months</option>
             </select>
           </div>
-          <input class="button button_primary form__button" data-go-estimate="" type="submit" value="Get an estimate">
+          <input class="button button_primary form__button" data-go-estimate="" id="data-go-estimate" type="submit" value="Get an estimate">
         </form>
       </div>
     </div>
