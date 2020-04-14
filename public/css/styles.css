@@ -87,7 +87,7 @@ input {
   border: 0;
   outline: 0;
   width: 100%;
-  color: #f2f2f2;
+  color: #9E9E9E;
   padding: 10px;
   background: transparent;
   border-bottom: 1px solid #f2f2f2;
@@ -96,11 +96,11 @@ input {
 select {
   border: 0;
   outline: 0;
-  color: #f2f2f2;
+  color: #9E9E9E;
   padding: 10px;
   background: transparent;
   border-bottom: 1px solid #f2f2f2;
-  width: 103%;
+  width: 104%;
 }
 
 .button_primary {
@@ -128,20 +128,20 @@ select {
 
 @media (max-width: 700px) {
   body {
-    overflow: auto;
+    overflow-y: auto;
   }
   .container {
     flex-flow: column;
   }
   .left-column {
     width: 100%;
+    padding: 0;
   }
   .right-column {
     width: 100%;
+    padding: 0;
   }
   .estimator-form {
     padding: 10px;
   }
 }
-
-@media (min-width: 1000px) {}
