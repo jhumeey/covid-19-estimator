@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Get correct rel for the link below -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  <link href="./public/" rel="stylesheet">
+  <link href="./public/ rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-column light-background">
+      <div class="header-container">
+        <h1>COVID-19 ESTIMATOR</h1>
+      </div>
+      <div class="image-container">
+        <img src="/src/public/images/undraw_setup_analytics_8qkl.svg" alt="analytics image">
+      </div>
+      <div class="text-container">
+        <p>There is this girl i know, she is so pretty
+          she is cute yeeeh so cute... blah blah blah.</p>
+      </div>
+    </div>
+    <div class="right-column dark-background">
+      <div class="form-container">
+        <div class="right-column-header">
+          <h1>Fill in your data</h1>
+        </div>
+        <form class="estimator-form">
+          <div class="form__item-group">
+            <label for="population">Population: </label>
+            <br>
+            <input class="form__input" type="number" name="population" data-population="" required>
+          </div>
+          <div class="form__item-group">
+            <label for="reported_cases">Reported Cases: </label>
+            <br>
+            <input class="form__input" type="number" name="reported_cases" data-reported-cases="" required>
+          </div>
+          <div class="form__item-group">
+            <label for="time">Time To Elapse: </label>
+            <br>
+            <input class="form__input" type="number" name="data-time-to-elapse" data-time-to-elapse="" required>
+          </div>
+          <div class="form__item-group">
+            <label for="hospitals">Total Hospitals </label>
+            <br>
+            <input class="form__input" type="number" name="data-total-hospital-beds" data-total-hospital-beds=""
+              required>
+          </div>
+          <div class="form__item-group">
+            <label for="period-type">PeriodType: </label>
+            <br>
+            <select class="form__select" name="data-period-type" data-period-type="">
+              <option>Days</option>
+              <option>Weeks</option>
+              <option>Months</option>
+            </select>
+          </div>
+          <input class="button button_primary form__button" data-go-estimate="" type="submit" value="Get an estimate">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
